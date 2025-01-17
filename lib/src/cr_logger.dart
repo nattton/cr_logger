@@ -32,7 +32,7 @@ final class CRLoggerInitializer {
   CRLoggerInitializer._();
 
   static const _channel = EventChannel(
-    'com.cleveroad.cr_logger/logger',
+    'com.ttbbank.cr_logger/logger',
   );
 
   static CRLoggerInitializer instance = CRLoggerInitializer._();
@@ -151,8 +151,7 @@ final class CRLoggerInitializer {
     _httpAdapter = CRHttpAdapter();
 
     if (theme != null) {
-      CRLoggerHelper.instance.theme =
-          theme.copyWithDefaultCardTheme(loggerTheme.cardTheme as CardTheme);
+      CRLoggerHelper.instance.theme = theme.copyWithDefaultCardTheme(loggerTheme.cardTheme as CardTheme);
     }
     this.logFileName = logFileName ?? this.logFileName;
     this.hiddenFields = hiddenFields ?? [];
@@ -170,9 +169,7 @@ final class CRLoggerInitializer {
             printLogsCompactly: printLogsCompactly,
           ),
           output: _consoleLogOutput,
-          filter: useCrLoggerInReleaseBuild
-              ? ProductionFilter()
-              : DevelopmentFilter(),
+          filter: useCrLoggerInReleaseBuild ? ProductionFilter() : DevelopmentFilter(),
           level: Level.trace,
         );
 
@@ -186,8 +183,7 @@ final class CRLoggerInitializer {
   /// Get current Charles proxy settings as an "ip:port" string
   ///
   /// Proxy settings are saved in the logger with SharedPreferences
-  String? getProxySettings() =>
-      CRLoggerHelper.instance.getProxyFromSharedPref();
+  String? getProxySettings() => CRLoggerHelper.instance.getProxyFromSharedPref();
 
   /// Adds a value notifier to the Actions and values page
   void addValueNotifier({
